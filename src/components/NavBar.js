@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
-import {RoomContext} from "../contexts/RoomContext"
+import React from 'react'
 
 export default function NavBar() {
-
-    const {rooms} = useContext(RoomContext); 
-    console.log(rooms)
+    
+    // for (let i = 0; i < rooms.length; i++) {
+        
+    //     console.log(rooms[i]);
+    // }
 
     return (
         <nav className="NavBar">
@@ -12,11 +13,7 @@ export default function NavBar() {
             <button>Rent</button>
             <button>Return</button>
             <ul className="demo">
-                {
-                    rooms.map(room=>{
-                        return(<li room={room}></li>)
-                    })
-                }
+              
             </ul>
             
         </nav>
