@@ -21,4 +21,23 @@ code {
   text-align: center;
 }
 
+.Avail {
+  background-color: lightblue;
+}
+
+li{
+  background-color: black;
+  color: aliceblue;
+  margin: 1% 40%;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out .5s;
+  list-style-type: none;
+}
+
+li:hover{
+    background-color: #555;
+    transform: scale(.95, .95);
+}
 
