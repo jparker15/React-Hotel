@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from "./components/NavBar"
+import Rent from './components/Rent';
 import RoomContext from "./contexts/RoomContext"
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <RoomContext>
         <NavBar/>
+        <Rent/>
       </RoomContext>
     
       
