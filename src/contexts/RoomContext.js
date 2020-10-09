@@ -15,7 +15,8 @@ const RoomContextProvider = (props) => {
 
             const floPrice = (floorCost * i );
 
-            data.push([`floor ${i}`])
+            let demo = []
+            data.push(demo)
 
             for (let j = 1; j <= roomNum; j++) {
                 
@@ -23,14 +24,14 @@ const RoomContextProvider = (props) => {
 
                 const total = floPrice + rooPrice + deposit;
 
-                // console.log(data[i-1], i , j);
+                const roomInfo = {room:`${i * 100+ j}`, price: total, renter:null }
 
-                data[i-1].push({room:`${i * 100+ j}`, price: total, renter:null })
-                // console.log(i,j,total);
-                // console.log(floPrice, rooPrice)
+                data[i-1].push(roomInfo)
+            
             }
             
         }
+        localStorage.setItem("rooms", JSON.stringify(data))
         return data;
     }
 
@@ -39,7 +40,7 @@ const RoomContextProvider = (props) => {
     const [rooms, setRooms] = useState(pricing(4,4))
 
     return (
-       <RoomContext.Provider value={{rooms}}>
+       <RoomContext.Provider value={{rooms,setRooms}}>
            {props.children}
        </RoomContext.Provider>
     )
