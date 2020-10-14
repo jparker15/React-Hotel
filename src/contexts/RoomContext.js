@@ -1,4 +1,4 @@
-import React,{createContext, useState} from 'react'
+import React,{createContext, useEffect, useState} from 'react'
 
 export const RoomContext = createContext()
 
@@ -10,40 +10,37 @@ const RoomContextProvider = (props) => {
 
     const pricing = (floNum,roomNum) =>{
         let data = [];
-
         for (let i = 1; i <= floNum; i++) {
-
             const floPrice = (floorCost * i );
-
             let demo = []
             data.push(demo)
-
             for (let j = 1; j <= roomNum; j++) {
-                
                 const rooPrice = (roomCost * j - roomCost);
-
                 const total = floPrice + rooPrice + deposit;
-
                 const roomInfo = {room:`${i * 100+ j}`, price: total, renter:null }
-
                 data[i-1].push(roomInfo)
-            
             }
-            
         }
-        localStorage.setItem("rooms", JSON.stringify(data))
         return data;
     }
+    const roomsLocalStorage = localStorage.getItem("rooms");
 
-    pricing(2,8)
+    const initialState = roomsLocalStorage === null ? pricing(4,4) : JSON.parse(roomsLocalStorage); 
+    
+    // console.log(initialState);
 
-    const [rooms, setRooms] = useState(pricing(4,4))
+    const [rooms, setRooms] = useState(initialState);
+
+    useEffect(()=>{
+        console.log(rooms);
+        localStorage.setItem("rooms", JSON.stringify(rooms))
+        console.log(localStorage.getItem("rooms"));
+    }, [rooms])
 
     return (
-       <RoomContext.Provider value={{rooms,setRooms}}>
+       <RoomContext.Provider value={{rooms, setRooms}}>
            {props.children}
        </RoomContext.Provider>
     )
 }
-
 export default RoomContextProvider
