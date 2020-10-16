@@ -23,6 +23,14 @@ code {
 
 .Avail {
   background-color: lightblue;
+  max-width: 1000px;
+  margin: 0 auto ;
+}
+.Rented {
+  background-color: lightsalmon;
+  max-width: 1000px;
+  margin: 0 auto;
+  
 }
 
 li{
