@@ -32,9 +32,7 @@ const RoomContextProvider = (props) => {
     const [rooms, setRooms] = useState(initialState);
 
     useEffect(()=>{
-        console.log(rooms);
         localStorage.setItem("rooms", JSON.stringify(rooms))
-        console.log(localStorage.getItem("rooms"));
     }, [rooms])
 
     return (
