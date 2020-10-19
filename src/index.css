@@ -12,25 +12,36 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-#root{
-  background-color: pink;
-}
-
 .App{
   text-align: center;
+}
+
+.NavBar {
+  background-color: darkslategray;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: 0 auto;
+ 
+}
+
+.roomContainer{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.roomContainer div{
+  display: none;
 }
 
 .Avail {
   background-color: lightblue;
   max-width: 1000px;
   margin: 0 auto ;
+
 }
 .Rented {
   background-color: lightsalmon;
   max-width: 1000px;
   margin: 0 auto;
-  
 }
 
 li{
