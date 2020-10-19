@@ -8,20 +8,32 @@ export default function NavBar() {
 
     const hideRent = (e) =>{
         console.log(e.target);
-
-        show = !show
-        console.log(show);
         
+        show = !show;
+
         const rentDiv = document.getElementsByClassName("Rent");
 
         if(!show){
-            rentDiv[0].style.display = "none"
+            rentDiv[0].style.display = "inline";
+            
         }
         else{
-            rentDiv[0].style.display ="inline"
+            rentDiv[0].style.display ="none";
+        }
+    }
+
+    const showReturn = () =>{
+        show = !show;
+
+        const returnDiv = document.getElementsByClassName("Return");
+
+        if(!show){
+            returnDiv[0].style.display = "inline";
+        }
+        else{
+            returnDiv[0].style.display ="none";
         }
 
-        console.log();
     }
 
     return (
@@ -30,13 +42,13 @@ export default function NavBar() {
             <button
             onClick={hideRent}
             >Rent</button>
-            <button>Return</button>
+            <button
+            onClick={showReturn}
+            >Return</button>
+            <div className="roomContainer">
             <Rent/>
-            <Return/>
-            <ul className="demo">
-              
-            </ul>
-            
+            <Return/> 
+            </div>
         </nav>
     )
 }
