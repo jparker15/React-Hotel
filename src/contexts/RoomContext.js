@@ -29,6 +29,8 @@ const RoomContextProvider = (props) => {
     
     // console.log(initialState);
 
+    const hideBool = true;
+
     const [rooms, setRooms] = useState(initialState);
 
     useEffect(()=>{
